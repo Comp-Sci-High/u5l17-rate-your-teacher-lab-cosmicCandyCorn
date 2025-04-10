@@ -4,18 +4,20 @@
 
 const form = document.querySelector("form")
 
-form.addEventListener("submit"), async (e)=>{
-    e.preventDefault()
-    const aTeacher = new formData (createform)
-    const reqBody = Object.fromEntries(form)
-    const response = await fetch("/add", {
-  method: "POST",
-  headers: {
-"Content-Type": "application/json"
-},
-body:JSON.Stringify(reqBody)
+createForm.addEventListener("submit", async (e) => {
+  e.preventDefault()
+  const ratingg = new formData(createForm)
+  const reqBody = Object.fromEntries(ratingg)
+
+  const response = await fetch("/add/rating", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(reqBody)
+  })
+  const data = await response.json()
+  console.log(data)
+  window.location.href = "/"
 })
-const data = await response.json() 
-console.log(data)
-window.location.href = "/"
-}
+
